@@ -4,7 +4,6 @@ commands:
   install_nodejs:
     description: Install Node.js 13.8.0
     steps:
-
       - run:
           name: Install Node.js 13.8.0
           command: |
@@ -202,7 +201,8 @@ jobs:
       - destroy-environment
   configure-infrastructure:
     docker:
-      - image: cimg/base:stable
+      #- image: cimg/base:stable
+      - image: cimg/python:3.10
     steps:
       - checkout
       - install_awscli
