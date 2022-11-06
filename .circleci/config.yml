@@ -144,6 +144,7 @@ jobs:
             cd frontend
             npm install
             sudo npm audit fix --audit-level=critical --force
+            sudo npm audit fix --audit-level=critical --force
             sudo npm audit  --audit-level=critical
   scan-backend:
     docker:
