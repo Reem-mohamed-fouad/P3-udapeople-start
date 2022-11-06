@@ -217,8 +217,6 @@ jobs:
             ansible-playbook -i inventory.txt configure-server.yml
       - destroy-environment
 
-  run-migrations:
-    docker:
       #- image: cimg/node:13.8.0
      # - image: cimg/python:3.10
     #steps:
@@ -235,10 +233,12 @@ jobs:
       #      npm run migrations > migrations_dump.txt
       #      cat migrations_dump.txt
 
+  run-migrations:
+    docker:
       - image: circleci/node:13.8.0
     steps:
       - checkout
-      - install-awscli
+      - install_awscli
       - run:
           name: Run migrations
           command: |
