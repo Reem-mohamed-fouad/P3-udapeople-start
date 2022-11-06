@@ -4,7 +4,7 @@ commands:
   install_nodejs:
     description: Install Node.js 13.8.0
     steps:
-    
+
       - run:
           name: Install Node.js 13.8.0
           command: |
@@ -148,6 +148,7 @@ jobs:
             npm audit fix --audit-level=critical --force
             npm audit fix --audit-level=critical --force
             npm audit fix --audit-level=critical --force
+            npm audit  --audit-level=critical
             npm audit --audit-level=critical
 
   scan-backend:
