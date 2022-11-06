@@ -235,7 +235,7 @@ jobs:
 
   run-migrations:
     docker:
-      - image : cimg/python:3.1
+      - image : cimg/python:3.10
 
       #- image: circleci/node:13.8.0
      # - image: cimg/base:stable
