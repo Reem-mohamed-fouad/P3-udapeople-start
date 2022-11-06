@@ -220,20 +220,32 @@ jobs:
   run-migrations:
     docker:
       #- image: cimg/node:13.8.0
-      - image: cimg/python:3.10
+     # - image: cimg/python:3.10
+    #steps:
+    #  - checkout
+    #  - restore_cache:
+    #      keys: [backend-deps]
+    ##  - install_awscli
+     # - install_nodejs
+     # - run:
+     #     name: Run migrations
+      #    command: |
+      #      cd backend
+      #      sudo npm install npm@latest -g
+      #      npm run migrations > migrations_dump.txt
+      #      cat migrations_dump.txt
+    
+    docker:
+      - image: circleci/node:13.8.0
     steps:
       - checkout
-      - restore_cache:
-          keys: [backend-deps]
-      - install_awscli
-      - install_nodejs
+      - install-awscli
       - run:
           name: Run migrations
           command: |
             cd backend
-            sudo npm install npm@latest -g
+            npm i
             npm run migrations > migrations_dump.txt
-            cat migrations_dump.txt
       - run:
           name: Send migration status to kvdb.io
           command: |
