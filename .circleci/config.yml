@@ -142,8 +142,7 @@ jobs:
           name: Run frontend scan
           command: |
             cd frontend
-            npm install
-            sudo npm audit fix --audit-level=critical --force
+            sudo npm install npm@latest -g
             sudo npm audit fix --audit-level=critical --force
             sudo npm audit  --audit-level=critical
   scan-backend:
@@ -323,8 +322,8 @@ workflows:
           requires: [build-frontend]
       - test-backend:
           requires: [build-backend]
-      #- scan-frontend:
-      #    requires: [build-frontend]
+      - scan-frontend:
+          requires: [build-frontend]
       - scan-backend:
           requires: [build-backend]
       - deploy-infrastructure:
