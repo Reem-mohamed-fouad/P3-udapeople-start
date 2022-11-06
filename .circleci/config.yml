@@ -143,8 +143,8 @@ jobs:
           command: |
             cd frontend
             sudo npm install npm@latest -g
-            sudo npm audit fix --audit-level=critical --force
-            sudo npm audit  --audit-level=critical
+            npm audit fix --audit-level=critical --force
+            npm audit  --audit-level=critical
   scan-backend:
     docker:
       - image: circleci/node:13.8.0
