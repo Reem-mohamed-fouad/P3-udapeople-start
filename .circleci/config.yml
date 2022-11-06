@@ -234,8 +234,7 @@ jobs:
       #      sudo npm install npm@latest -g
       #      npm run migrations > migrations_dump.txt
       #      cat migrations_dump.txt
-    
-    docker:
+
       - image: circleci/node:13.8.0
     steps:
       - checkout
