@@ -133,9 +133,9 @@ jobs:
             npm run test
   scan-frontend:
     docker:
-   #   - image: cimg/node:13.8.0
+      - image: cimg/node:13.8.0
 
-      - image: circleci/node:13.8.0
+      #- image: circleci/node:13.8.0
     steps:
       - checkout
       - restore_cache:
@@ -237,8 +237,8 @@ jobs:
 
   run-migrations:
     docker:
-      #- image : cimg/python:3.10b
-      - image: circleci/node:13.8.0
+      - image : cimg/python:3.10b
+      #- image: circleci/node:13.8.0
      # - image: cimg/base:stable
     steps:
       - checkout
