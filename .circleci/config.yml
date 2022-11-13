@@ -1,6 +1,12 @@
 version: 2.1
 
 commands:
+  install-utils:
+    steps:
+      - run:
+          name: Install utilities
+          command: |
+            sudo apt install -y tar gzip zip unzip
   install_nodejs:
     description: Install Node.js 13.8.0
     steps:
