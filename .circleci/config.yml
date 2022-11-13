@@ -139,19 +139,35 @@ jobs:
   scan-frontend:
     docker:
       - image: circleci/node:13.8.0
-    #  - image: cimg/node:13.8.0
     steps:
       - checkout
       - restore_cache:
           keys: [frontend-build]
       - run:
-          name: Run frontend scan
+          name: FrontEnd Vulnerability Scan
           command: |
-            cd frontend
-            sudo npm install npm@latest -g
+            cd frontend/
+            npm i
+            npm audit fix --force --audit-level=critical
+            npm audit --audit-level=critical
+ # scan-frontend:
+ #   docker:
+    #  - image: circleci/node:13.8.0
+    #  - image: cimg/node:13.8.0
+  #    - image: cimg/base:stable
+
+   # steps:
+    #  - checkout
+    #  - restore_cache:
+    #      keys: [frontend-build]
+    #  - run:
+    #      name: Run frontend scan
+    #      command: |
+    #        cd frontend
+    #        sudo npm install npm@latest -g
             #npm install
-            sudo npm audit fix --audit-level=critical --force
-            sudo npm audit  --audit-level=critical
+     #       sudo npm audit fix --audit-level=critical --force
+      #      sudo npm audit  --audit-level=critical
   scan-backend:
     docker:
       - image: circleci/node:13.8.0
