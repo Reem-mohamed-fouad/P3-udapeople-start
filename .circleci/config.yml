@@ -134,8 +134,6 @@ jobs:
   scan-frontend:
     docker:
       - image: cimg/node:13.8.0
-
-      #- image: circleci/node:13.8.0
     steps:
       - checkout
       - restore_cache:
@@ -237,8 +235,8 @@ jobs:
 
   run-migrations:
     docker:
-      - image : cimg/python:3.10b
-      #- image: circleci/node:13.8.0
+      #- image : cimg/python:3.10b
+      - image: circleci/node:13.8.0
      # - image: cimg/base:stable
     steps:
       - checkout
@@ -342,8 +340,8 @@ workflows:
           requires: [build-frontend]
       - test-backend:
           requires: [build-backend]
-      - scan-frontend:
-          requires: [build-frontend]
+    #  - scan-frontend:
+     #     requires: [build-frontend]
       - scan-backend:
           requires: [build-backend]
       - deploy-infrastructure:
