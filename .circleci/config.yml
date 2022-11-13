@@ -40,7 +40,6 @@ commands:
               npm install
               npm run migration:revert
             fi
-
   install_awscli:
     description: Install AWS CLI v2
     steps:
@@ -401,7 +400,7 @@ jobs:
     steps:
       - checkout
       - install-utils
-      - install-awscli
+      - install_awscli
       - run:
           name: Remove old stacks and files
           command: |
